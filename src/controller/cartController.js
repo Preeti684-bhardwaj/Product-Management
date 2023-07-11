@@ -26,7 +26,7 @@ const createCart = async function (req, res) {
         const { productId, quantity, cartId } = req.body
 
         //req.body 
-        if (!isValidRequestBody(req.body)) {
+        if (!isValidBody(req.body)) {
             return res.status(400).send({ status: false, message: "Enter data in body" })
         }
 
@@ -35,7 +35,7 @@ const createCart = async function (req, res) {
             return res.status(400).send({ status: false, message: "Enter userId" })
         }
 
-        if (!isValidObjectId(userId)) {
+        if (!isValidId(userId)) {
             return res.status(401).send({ status: false, message: "Invalid User Id" })
         }
 
@@ -65,7 +65,7 @@ const createCart = async function (req, res) {
                 return res.status(400).send({ status: false, message: "Enter mandatory fields" })
             }
 
-            if (!isValidObjectId(productId)) {
+            if (!isValidId(productId)) {
                 return res.status(401).send({ status: false, message: "Invalid product Id" })
             }
 
@@ -79,7 +79,7 @@ const createCart = async function (req, res) {
                 return res.status(400).send({ status: false, message: "Enter cartId" })
             }
 
-            if (!isValidObjectId(cartId)) {
+            if (!isValidId(cartId)) {
                 return res.status(401).send({ status: false, message: "Invalid cart Id" })
             }
 
